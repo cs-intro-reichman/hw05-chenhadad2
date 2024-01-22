@@ -30,8 +30,12 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
-		/// Write here code that tests that the count and cellValue functions
-		//// are working properly, and returning the correct values.
+		for(int i = 1; i < board.length - 1; i++) {
+			for (int j = 1; j < board[0].length - 1; j++ ) {
+				int count = count(board, i, j);
+				System.out.println("current cell (i = " + i + "j = " + j + ") value is = " + board [i][j]);
+			}
+		}
 }
 		
 	// Reads the data file, plays the game for Ngen generations, 
@@ -66,17 +70,22 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows+2][cols+2];
-		int currentLine = 1;
+		int i = 1;
+		int j = 1;
 		while (!in.isEmpty()) {
 			String line = in.readLine();
-			if (line != "") {
-				for (int i = 1; i <= line.length(); i++) {
-					if(line.charAt(i-1) == 'x'){
-						board[currentLine][i] = 1;	
+			int l = line.length();
+		
+			if (l != 0) {
+				for (j = 1; j <= l; j++) {
+					char chr = line.charAt(j-1);
+					if (chr == 'x') {
+					board[i][j] =1;	
 					}
 				}
 			}
-			currentLine++;
+			i++;
+			
 		}
 		return board;
 	}
@@ -152,7 +161,7 @@ public class GameOfLife {
 		//// Write your code here.
 		for (int i = 1; i  < arr.length - 1; i++){
 			for (int j = 1; j < arr[0].length  - 1; j++ ) {
-				System.out.printf("%d ",arr[i][j]);
+				System.out.printf("%3s",arr[i][j]);
 			}
 			System.out.println();
 		}
