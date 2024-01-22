@@ -33,7 +33,7 @@ public class GameOfLife {
 		for(int i = 1; i < board.length - 1; i++) {
 			for (int j = 1; j < board[0].length - 1; j++ ) {
 				int count = count(board, i, j);
-				System.out.println("current cell (i = " + i + "j = " + j + ") value is = " + board [i][j]);
+				System.out.println("current cell (i = " + i + " j = " + j + ") value is = " + board [i][j]);
 			}
 		}
 }
